@@ -1,11 +1,13 @@
 """
 Test script for the AgentManager and Agent classes.
 """
+
+import asyncio
 import os
 import sys
 
 # Add the parent directory to the path to allow importing the modules
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../..")))
 
 from opensymbiose.agents.agent_manager import AgentManager
 from opensymbiose.agents.create_agents import setup_agents, get_agents
@@ -40,22 +42,24 @@ def test_agent_manager():
     print("AgentManager tests completed successfully")
 
 
-def test_create_agents():
+async def test_create_agents():
     """
     Test the create_agents module.
     """
     print("\nTesting create_agents module...")
 
     # Test setup_agents function
-    agents = setup_agents()
+    agents = await setup_agents()
     assert "test_agent_tools" in agents, "Test agent not created"
     assert "calculating_agent" in agents, "Calculating agent not created"
 
     print(f"✓ setup_agents created {len(agents)} agents")
 
     # Test get_agents function
-    agents2 = get_agents()
-    assert agents2["test_agent_tools"].id == agents["test_agent_tools"].id, "get_agents returned different agents"
+    agents2 = await get_agents()
+    assert agents2["test_agent_tools"].id == agents["test_agent_tools"].id, (
+        "get_agents returned different agents"
+    )
 
     print("✓ get_agents works correctly")
 
@@ -70,7 +74,8 @@ def test_create_agents():
     print("create_agents tests completed successfully")
 
 
-if __name__ == "__main__":
+async def main():
+    """Run all tests."""
     # Check if MISTRAL_API_KEY is set
     if not os.environ.get("MISTRAL_API_KEY"):
         print("Error: MISTRAL_API_KEY environment variable is not set")
@@ -78,6 +83,10 @@ if __name__ == "__main__":
         sys.exit(1)
 
     test_agent_manager()
-    test_create_agents()
+    await test_create_agents()
 
     print("\nAll tests completed successfully!")
+
+
+if __name__ == "__main__":
+    asyncio.run(main())

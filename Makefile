@@ -53,7 +53,7 @@ dockerbuild:
 	docker build -t opensymbiose:latest .
 
 dockerrun:
-	docker run --rm opensymbiose:latest
+	docker run --rm -p 7860:7860 --env-file .env opensymbiose:latest
 
 allci:
 	$(MAKE) check

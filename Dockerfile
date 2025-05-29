@@ -12,12 +12,13 @@ RUN apt update && \
     git \
     && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /app
-COPY README.md /app/
-COPY pyproject.toml /app/
-RUN uv sync --no-install-project --no-dev
-COPY src/opensymbiose /app/opensymbiose
+WORKDIR /src
+COPY README.md /src/
+COPY pyproject.toml /src/
+RUN uv sync --no-dev
+COPY src/opensymbiose /src/opensymbiose
 
-EXPOSE 8000
+EXPOSE 7860
 
-CMD ["uv", "run", "opensymbiose/main.py"]
+ENV PYTHONPATH=/src
+CMD ["uv", "run", "gradio", "/src/opensymbiose/gradio/app.py"]
