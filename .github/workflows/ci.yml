@@ -1,14 +1,14 @@
 name: Deploy Documentation
 on:
   push:
-    branches:
-      - master
-      - main
+    tags:
+      - '*'
 permissions:
   contents: write
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/') && github.event.base_ref == 'refs/heads/master'
     steps:
       - uses: actions/checkout@v4
       - name: Configure Git Credentials
