@@ -183,4 +183,6 @@ env/
 **/__pycache__/
 dist/
 .coverage
-
+.gradio
+.idea
+.DS_Store

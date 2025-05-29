@@ -17,16 +17,16 @@ help:
 	@echo "  make allci              Run all CI steps (check, format, type, test coverage)"
 
 dev:
-	uv run opensymbiose
+	uv run --env-file=.env gradio src/opensymbiose/gradio/app.py
 
 prod:
-	uv run opensymbiose
+	uv run --env-file=.env opensymbiose
 
 test:
-	uv run pytest tests/
+	uv run --env-file=.env pytest tests/
 
 cov:
-	uv run pytest --cov=src/opensymbiose tests/ --cov-report=term-missing
+	uv run --env-file=.env pytest --cov=src/opensymbiose tests/ --cov-report=term-missing
 
 check:
 	uv run ruff check $$(git diff --name-only --cached -- '*.py')
