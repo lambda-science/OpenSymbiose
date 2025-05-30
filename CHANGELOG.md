@@ -1,5 +1,8 @@
-# v0.0.2
+# v0.0.3
 
+- Async Query of Mistral API
+
+# v0.0.2
 - More lax python version for HuggingFace Space
 
 # v0.0.1

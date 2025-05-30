@@ -20,10 +20,7 @@ on [HuggingFace](https://huggingface.co/spaces/corentinm7/opensymbiose)
 
 **Note:** In every-case you will need an environment variable or a .env file with your `MISTRAL_API_KEY` secret.
 
-- Install from PyPi: `pip install opensymbiose` and run in your terminal `opensymbiose` it will boot the gradio app.
+- Install from PyPi: `pip install opensymbiose`
+    - Locally: Run in your terminal `opensymbiose` it will boot the gradio app
+    - In Docker: `make dockerbuild && make dockerrun` to run in Docker.
 - From GitHub: clone the repository and run `make dev`. It will launch the Gradio app with hot-reloading.
-
-## Usage
-
-Placeholder
-

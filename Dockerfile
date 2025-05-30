@@ -21,4 +21,5 @@ COPY src/opensymbiose /src/opensymbiose
 EXPOSE 7860
 
 ENV PYTHONPATH=/src
+ENV GRADIO_SERVER_NAME=0.0.0.0
 CMD ["uv", "run", "gradio", "/src/opensymbiose/gradio/app.py"]

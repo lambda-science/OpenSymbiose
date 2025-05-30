@@ -1,6 +1,6 @@
 [project]
 name = "opensymbiose"
-version = "0.0.2"
+version = "0.0.3"
 description = "OpenSymbiose is an open-source biotechnology / biology research AI agent designed to support researcher."
 readme = "README.md"
 requires-python = ">=3.10"
