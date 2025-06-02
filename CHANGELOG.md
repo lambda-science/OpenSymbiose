@@ -1,5 +1,8 @@
-# v0.0.3
+# v0.0.4
 
+- Fix some non-async calls
+
+# v0.0.3
 - Async Query of Mistral API
 
 # v0.0.2

@@ -1,5 +1,5 @@
 # For HuggingFace Space Gradio App
-opensymbiose
+opensymbiose>=0.0.4
 mistralai
 python-dotenv
 gradio

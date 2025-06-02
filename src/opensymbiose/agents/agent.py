@@ -47,7 +47,7 @@ class Agent:
         """
         if agent_id not in self.handoffs:
             self.handoffs.append(agent_id)
-            updated_agent = client.beta.agents.update_async(
+            updated_agent = await client.beta.agents.update_async(
                 agent_id=self.id, handoffs=self.handoffs
             )
             # Update the raw data with the updated agent
@@ -63,7 +63,7 @@ class Agent:
         """
         if agent_id in self.handoffs:
             self.handoffs.remove(agent_id)
-            updated_agent = client.beta.agents.update_async(
+            updated_agent = await client.beta.agents.update_async(
                 agent_id=self.id, handoffs=self.handoffs
             )
             # Update the raw data with the updated agent
